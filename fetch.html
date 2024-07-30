@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function hello() {
+            var response = await fetch('https://reqres.in/api/users?page=2');
+            var res = await response.json();
+            var ans = res.data;
+            console.log(ans);
+            dowork(ans);
+        }
+        function dowork(input) {
+            var table = document.createElement('table');
+            table.style.border = '2px solid black';
+
+            var thead = document.createElement('thead');
+            var tbody = document.createElement('tbody');
+            
+            // Create table header
+            var headerRow = document.createElement('tr');
+            if(input.length > 0) {
+                for (let key in input[0]) {  // When the loop for (let key in input[0]) runs, it will iterate over the keys id, email, first_name, last_name, and avatar of the first object in the array.
+                    var th = document.createElement('th');
+                    th.innerHTML = key;
+                    th.style.border = '1px solid black';
+                    headerRow.appendChild(th);
+                }
+            }
+            thead.appendChild(headerRow);
+            
+            // Create table body
+            input.forEach((ele) => {
+                var tr = document.createElement('tr');
+                for (let key in ele) {
+                    var td = document.createElement('td');
+                    td.innerHTML = ele[key];
+                    td.style.border = '1px solid black';
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            });
+
+            table.appendChild(thead);
+            table.appendChild(tbody);
+            document.body.appendChild(table);
+        }
+        hello();
+    </script>
+</body>
+</html>
