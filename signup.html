@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        .login {
+            border: 2px solid black;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .login input {
+            margin: 10px 0;
+            padding: 8px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Welcome To Flifcart</h1>
+    <div class="login">
+        <input type="text" id="name" name="name" placeholder="Enter Name" required><br>
+        <input type="email" id="email" name="email" placeholder="Enter Email" required><br>
+        <input type="password" id="pass" name="pass" placeholder="Enter Password" required><br>
+        <button id="btn">Submit</button>
+        <p><a href="./sigin.html">Do You have an account? Signup up here.</a></p>
+    </div>
+    <script>
+        document.getElementById('btn').addEventListener('click', () => {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let pass = document.getElementById('pass').value;
+
+            let userData = { name, email, pass };
+
+            let storedData = localStorage.getItem('userData');
+
+            // Parse existing data or initialize as an empty array
+            let data = storedData ? JSON.parse(storedData) : [];
+
+            if (data) {
+                let found = data.some(ele => ele.name === name && ele.pass === pass);
+                if (found) {
+                    alert('User Alreday Exists');
+                } else {
+                    data.push(userData);
+                }
+            }
+            localStorage.setItem('userData', JSON.stringify(data));
+            
+        });
+    </script>
+</body>
+</html>

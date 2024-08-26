@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div{
+            border: 2px solid black;
+            background-color: antiquewhite;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the cart</h1>
+    <h2 id="h2"></h2>
+    <a href="./Flifcart.html"> <button id="back">Back</button></a>
+   
+    <script>
+            let data=JSON.parse(localStorage.getItem('cart'))||[];
+            data.forEach((ele,index)=>{
+            let div=document.createElement('div');
+            div.setAttribute('id','div');
+             let p1=document.createElement('p');
+             let p2=document.createElement('p');
+             let h1=document.createElement('h1');
+             let rem = document.createElement('button');
+             let plus=document.createElement('button');
+             plus.innerHTML="+";
+             plus.addEventListener('click',()=>{
+
+                ele.count++;
+                h1.innerHTML=ele.count;
+                localStorage.setItem('cart',JSON.stringify(data));
+                total();
+             })
+             let Minus=document.createElement('button');
+             Minus.innerHTML="-";
+             Minus.addEventListener('click',()=>{
+               if(ele.count>1){
+                ele.count--;
+                h1.innerHTML=ele.count;
+                localStorage.setItem('cart',JSON.stringify(data));
+                total();
+               }
+             })
+             rem.innerHTML = "Remove item";
+             p1.innerHTML=ele.Name;
+             p2.innerHTML=ele.Price;
+             h1.innerHTML=ele.count;
+             div.append(p1);
+             div.append(p2);
+             div.append(h1);
+             div.append(plus);
+             div.append(Minus);
+             div.append(rem);
+             document.body.append(div);
+       
+             rem.addEventListener('click',() => {
+                div.remove();
+               data.splice(index,1); //  go the index and delete one index
+               localStorage.setItem('cart',JSON.stringify(data));
+               total();
+               
+             })
+            })
+            function total(){
+                let sum=0;
+                let allprice=data.map((ele)=>{
+                  return sum+=ele.Price*ele.count;
+                 })
+                 document.getElementById('h2').innerHTML=`${sum}`;
+            }
+            total();
+    </script>
+</body>
+</html>

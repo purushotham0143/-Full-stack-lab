@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//Test1
+var num1 = prompt("Enter n1");
+var num2 = prompt("Enter n2");
+var num3 = prompt("Enter n3");
+
+function add(n1, n2, n3) {
+    let number1 = parseFloat(n1);
+    let number2 = parseFloat(n2);
+    let number3 = parseFloat(n3);
+
+    return number1 + number2 + number3;
+}
+console.log(add(num1, num2, num3))
+
+
+//Test2
+function getIndex(nestedArray, targetArray) {
+    for (let i = 0; i < nestedArray.length; i++) {
+        // Check if the current element is equal to the target array it will return true
+        if (JSON.stringify(nestedArray[i]) === JSON.stringify(targetArray)) {
+            return i; 
+        }
+    }
+    return -1; 
+}
+var firstArgument = [[1, 2], [3, 4], [5, [6, 7]]];
+var secondArgument = [5, [6, 7]];
+
+console.log(getIndex(firstArgument, secondArgument)); 
+    </script>
+</body>
+</html>

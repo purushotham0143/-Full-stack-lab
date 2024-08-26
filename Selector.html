@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+<!-- 
+<div id="myId">This is a div with ID 'myId'</div>
+<script>
+  const element = document.getElementById('myId');
+  console.log(element.textContent); // Output: This is a div with ID 'myId'
+</script> -->
+
+
+<!-- <div class="myClass">Div 1</div>
+<div class="myClass">Div 2</div>
+<script>
+    //Here ByClassName it will return Array collection
+  const elements = document.getElementsByClassName('myClass');
+  Array.from(elements).forEach(el => console.log(el.textContent));
+  // Output: Div 1
+  // Output: Div 2
+</script> -->
+
+
+<!-- <p>Paragraph 1</p>
+<p>Paragraph 2</p>
+<script>
+    // this will Also return Html Collection
+  const paragraphs = document.getElementsByTagName('p');
+  Array.from(paragraphs).forEach(p => console.log(p.textContent));
+  // Output: Paragraph 1
+  // Output: Paragraph 2
+</script>  -->
+
+
+
+
+<!-- <div class="myClass">This is the first div with class 'myClass'</div>
+<div class="myClass">This is the second div with class 'myClass'</div>
+<script>
+    //It will select the first myClass 
+  const element = document.querySelector('.myClass');
+  console.log(element.textContent); // Output: This is the first div with class 'myClass'
+</script> -->
+
+
+
+
+<!-- <div class="myClass">Div 1</div>
+<div class="myClass">Div 2</div>
+
+<script>
+    //It Will return the node list;
+  const elements = document.querySelectorAll('.myClass');
+  elements.forEach(el => console.log(el.textContent));
+  // Output: Div 1
+  // Output: Div 2
+</script> -->
+
+
+
+
+<!-- < <div data-attribute="value1">Div 1</div>
+<div data-attribute="value2">Div 2</div>
+<div id="value3">Div 3</div>
+
+<script>
+    // It will select the data Attributes only
+  const elements = document.querySelectorAll('[data-attribute]');
+  elements.forEach(el => console.log(el.textContent));
+  // Output: Div 1
+  // Output: Div 2
+</script>  -->
+
+
+
+
+<!-- 
+<div class="container">
+    <span>Span 1</span>
+    <span>Span 2</span>
+  </div>
+  
+  <script>
+    const spans = document.querySelectorAll('.container span');
+    spans.forEach(span => console.log(span.textContent));
+    // Output: Span 1
+    // Output: Span 2
+  </script> -->
+  
+
+
+
+
+<!-- <div class="container">
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+  </div>
+  
+  <script>
+    const firstParagraph = document.querySelector('.container p:nth-of-type(2)');
+    console.log(firstParagraph.textContent); // Output: Paragraph 1
+  </script> -->
+
+
+
+
+
+  <!-- <div class="container">
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+</div>
+
+<script>
+    // Using querySelectorAll to get all <p> elements inside .container
+    const paragraphs = document.querySelectorAll('.container p');
+    if (paragraphs.length > 1) {
+        console.log(paragraphs[1].textContent); // Output: Paragraph 2
+    }
+</script> -->
+
+
+
+
+
+
+
+
+<!--     
+  // 1. Selects an element with the ID 'myId'
+    //const element = document.getElementById('myId');
+
+
+// 2 Selects elements with the class name 'myClass'
+//const elements = document.getElementsByClassName('myClass');
+// Note: This returns an HTMLCollection, which is like an array. -->
+
+
+  <!-- //3. Selects all <p> elements -->
+    <!-- //const paragraphs = document.getElementsByTagName('p');
+    // This also returns an HTMLCollection.
+
+    
+    //4. Selects the first element that matches the CSS selector '.myClass'
+     //const element = document.querySelector('.myClass');
+
+//5 Selects all elements that match the CSS selector '.myClass'
+//const elements = document.querySelectorAll('.myClass');
+// This returns a NodeList.
+
+
+// 6.Selects elements with a specific attribute, for example 'data-attribute'
+//const elements = document.querySelectorAll('[data-attribute]'); -->
+
+
+
+<!-- // 7.Selects all <span> elements inside an element with the class 'container' -->
+   <!-- /// const spans = document.querySelectorAll('.container span'); -->
+
+
+
+    <!-- //8. Selects the first <p> element inside an element with the class 'container' -->
+<!-- //const firstParagraph = document.querySelector('.container p:first-of-type'); -->
+
+<!-- </>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Color Example</title>
+</head>
+<body>
+    <div id="myDiv">
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+        <p>Paragraph 3</p>
+        <p>Paragraph 4</p>
+    </div>
+
+    <script>
+        // JavaScript
+        const paragraphs = document.querySelectorAll('#myDiv p');
+        if (paragraphs.length > 2) {
+            paragraphs[2].style.color = 'blue'; // Index 2 is the third paragraph
+        }
+    </script>
+</body>
+</html> -->

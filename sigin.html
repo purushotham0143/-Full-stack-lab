@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        .login {
+            border: 2px solid black;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .login input {
+            margin: 10px 0;
+            padding: 8px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Welcome To Home</h1>
+    <div class="login">
+        <input type="text" id="name" name="name" placeholder="Enter Name" required><br>
+        <input type="password" id="pass" name="pass" placeholder="Enter Password" required><br>
+        <button id="btn2">Submit</button>
+        <p><a href="./signup.html">Don't have an account? Sign up here.</a></p>
+    </div>
+    <script>
+        document.getElementById('btn2').addEventListener('click', () => {
+            let val1 = document.getElementById('name').value;
+            let val2 = document.getElementById('pass').value;
+
+            let storedData = JSON.parse(localStorage.getItem('userData'));
+
+            if (storedData) {
+                let found = storedData.some(ele => ele.name === val1 && ele.pass === val2);
+                if (found) {
+                    cart=[];
+                    localStorage.setItem('cart',JSON.stringify(cart));
+                    window.location.href = 'Flifcart.html';
+                    console.log('Login successful!');
+                } else {
+                    alert('Invalid username or password.');
+                }
+            } else {
+                alert('No users found. Please sign up first.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -7,27 +7,39 @@
 </head>
 <body>
     <script>
-        const  Emp = [
-                      {
-                         EmpName : " Arpit Jain",
-                         EmpID: 1068
-                      },
-                       {
-                         EmpName : " Samuel  Bond",
-                         EmpID: 1079
-                      },
-                      {
-                         EmpName : " Rishabh  Garg",
-                         EmpID: 1080
-                      },
-                    ]  
-             var id=1068;            
-        dowork(Emp,id);
-        function dowork(input,id){
-       input.map(function(ele){
-        return ele.EmpID==id;
-       })
-        }
+        const Emp = [
+        {
+            EmpName: "Arpit Jain",
+            EmpID: 1068
+        },
+        {
+            EmpName: "Samuel Bond",
+            EmpID: 1079
+        },
+        {
+            EmpName: "Rishabh Garg",
+            EmpID: 1080
+        },
+    ];
+    //Task1
+    var id = prompt("Enter ID");;
+   console.log(dowork(Emp, id));
+    function dowork(input, id) {
+        let ans = input.findIndex(function(ele) {
+            return ele.EmpID === id;
+        });
+        return ans !== -1 ? ans : -1;
+    }
+    //Task2
+    function getInitials(employees) {
+        return employees.map(ele => {
+            const nameParts = ele.EmpName.split(' ');
+            return nameParts.map(part => part.charAt(0)).join('');
+        });
+    }
+    
+    const initials = getInitials(Emp);
+    console.log(initials); 
 
     </script>
 </body>
