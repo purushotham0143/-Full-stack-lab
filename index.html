@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 800px;
+            height: 300px;
+            border: 2px solid black;
+            text-align: center;
+            padding: 10px;
+            margin: auto;
+        }
+        .rev {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <img src="" alt="">
+        <img id="slide" src="./images/best life facts in telugu-the power of words in telugu-jnanakadali.jpg" alt="no image" width="200px" height="200px">
+        <p id="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim nihil sequi neque optio esse, non obcaecati nobis vel incidunt ratione asperiores dolor labore, deserunt atque cum laborum, laudantium cupiditate quod!</p>
+        <button id="bt1">Next</button>
+        <button id="bt2">Prev</button>
+        <button id="bt3"><a class="rev" href="./review.html">Review</a></button>
+    </div>
+    <script>
+        var count = 0;
+        let Array = [
+            {
+                img: './images/best telugu relationship importance messages quotes in telugu-jnanakadali.jpg',
+                text: 'This is Slide image1'
+            },
+            {
+                img: './images/download.jpg',
+                text: 'This is Slide image2'
+            },
+            {
+                img: './images/images.jpg',
+                text: 'This is Slide image3'
+            },
+            {
+                img: './images/motivatinol-quotes-3.png',
+                text: 'This is Slide image4'
+            }
+        ];
+
+        let img = document.getElementById('slide');
+        let lorem = document.getElementById('text');
+
+        function next() {
+            count++;
+            if (count >= Array.length) {
+                count = Array.length - 1;
+            }
+            img.setAttribute('src', Array[count].img);
+            lorem.innerHTML = Array[count].text;
+        }
+
+        function prev() {
+            count--;
+            if (count < 0) {
+                count = 0;
+            }
+            img.setAttribute('src', Array[count].img);
+            lorem.innerHTML = Array[count].text;
+        }
+
+        document.getElementById('bt1').addEventListener('click', next);
+        document.getElementById('bt2').addEventListener('click', prev);
+
+        window.addEventListener("load", () => {
+            let array2 = JSON.parse(localStorage.getItem('key'));
+            if (array2) {
+                Array = Array.concat(array2);
+            }
+        });
+    </script>
+</body>
+</html>

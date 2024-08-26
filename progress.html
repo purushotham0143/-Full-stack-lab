@@ -1,0 +1,125 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Progress Bar</title>
+    <style>
+        .container {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .bar {
+            height: 24px;
+            width: 0%;
+            background-color: #4caf50;
+            text-align: center;
+            line-height: 24px;
+            color: rgb(56, 26, 205);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Progress Bar</h1>
+    <div class="container" id="container">
+        <div class="bar" id="bar">0%</div>
+    </div>
+    <button id="bt1">Click me</button>
+    <script>
+        
+        let bar = document.getElementById('bar');
+        let container = document.getElementById('container');
+
+        function progress() {
+            let width = 0;
+            let Id = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(Id);
+                } else {
+                    width++;
+                    bar.style.width = width + '%';
+                    bar.textContent = width + '%';
+                }
+            }, 100);
+        }
+
+        document.getElementById('bt1').addEventListener('click', progress);
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Progress Bar</title>
+    <style>
+        .container {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #bar {
+            height: 24px;
+            width: 0%;
+            background-color: #4caf50;
+            text-align: center;
+            line-height: 24px;
+            color: rgb(56, 26, 205);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Progress Bar</h1>
+    <div class="container" id="container">
+        <div  id="bar">0%</div>
+    </div>
+    <button id="bt1">Click me</button>
+    <button onclick="myFunction()">Give me Time</button>
+    <p id="demo"></p>
+    
+    <script>
+        let bar = document.getElementById('bar');
+        let container = document.getElementById('container');
+        var time=100;
+        function myFunction() {
+            let person = prompt("Enter Progress Time");
+            if (person != null) {
+              
+                time = parseInt(person);
+                time = (time*60*1000)/100;  // this used to convert the Milliseconds into Minutes
+              document.getElementById("demo").innerHTML =time;
+            }
+          }
+        function progress() {
+            let width = 0;
+            let Id = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(Id);
+                } else {
+                    width++;
+                    bar.style.width = width + '%';
+                    bar.textContent = width + '%';
+                }
+            },time);
+        }
+        document.getElementById('bt1').addEventListener('click', progress);
+    </script>
+</body>
+</html> -->
+
+
+

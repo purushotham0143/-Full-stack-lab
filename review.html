@@ -1,0 +1,95 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #rev{
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            text-align: center;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<form id="rev">
+    <input type="file" id="img" name="img">
+    <textarea name="text" id="text" rows="10" cols="15"></textarea>
+    <button type="submit">Submit</button>
+</form>
+<script>
+    let array = [];
+    let obj = {};
+    document.querySelector('#rev').addEventListener('submit',x);
+    function x(e){
+ let var1 = "/images/"+document.querySelector('#img').files[0].name;
+ console.log(var1);
+ let var2 = document.querySelector('#text').value
+obj.img = var1;
+obj.text = var2;
+// console.log(var1);
+localStorage.forEach((ele)=>{
+    if(ele==var1){
+        console.log(ele);
+    }
+    else{
+        array.push(obj);
+    }
+}) 
+array.push(obj);
+//console.log(array); 
+
+localStorage.setItem('key',JSON.stringify(array));
+    }
+</script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #rev {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            text-align: center;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <form id="rev">
+        <input type="file" id="img" name="img">
+        <textarea name="text" id="text" rows="10" cols="15"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.querySelector('#rev').addEventListener('submit', x);
+        
+        function x(e) {
+            e.preventDefault();
+            let var1 = "/images/" + document.querySelector('#img').files[0].name;
+            let var2 = document.querySelector('#text').value;
+            
+            let obj = {
+                img: var1,
+                text: var2
+            };
+            
+            let array = JSON.parse(localStorage.getItem('key')) || [];
+            array.push(obj);
+            localStorage.setItem('key', JSON.stringify(array));
+        }
+    </script>
+</body>
+</html>
