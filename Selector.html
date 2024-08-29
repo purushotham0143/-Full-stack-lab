@@ -1,11 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+<body>
+  <!-- <div class="myClass">This is the first div with class 'myClass'</div>
+<div class="myClass">This is the second div with class 'myClass'</div>
+<script>
+    //It will select the first myClass 
+  const element = document.querySelector('.myClass');
+  element.style.border="2px solid black";
+ // console.log(element.textContent); // Output: This is the first div with class 'myClass'
+</script>  -->
+
+
+<!-- <div id="div1">
+  <p>This is Fist para</p>
+  <p>This is second para</p>
+  <p>This is third para</p>
+  <p>This is thi para</p>
+  <p>This is th para</p>
+  <p>This is th para</p>
+  <p>This is th para</p>
+  <p>This is thi para</p>
+  <p>This is thd para</p>
+  <p>This is thd para</p>
+
+</div>
+<script>
+  let div=document.getElementById('div1');
+  div.style.border="2px solid black"
+let data=document.getElementsByTagName('p');
+ console.log(data); 
+//Array.from(data).forEach(p => console.log(p.remove()));
+</script>  -->
+
+
+
+
+<div id="div1">
+  <p>This is Fist para</p>
+  <p>This is second para</p>
+  <p>This is third para</p>
+  <p>This is thi para</p>
+  <p>This is th para</p>
+  <p>This is th para</p>
+  <p>This is th para</p>
+  <p>This is thi para</p>
+  <p>This is thd para</p>
+  <p>This is thd para</p>
+
+</div>
+<script>
+  let div=document.getElementById('div1');
+  div.style.border="2px solid black"
+let data=document.getElementsByTagName('p');
+console.log(data); 
+let fin=Array.from(data).slice(5); 
+ console.log(fin); 
+
+</script> 
+
+<!-- 
+ <div class="container">
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p>Paragraph 3</p>
+  </div>
+  
+  <script>
+    const firstParagraph = document.querySelector('.container p:nth-of-type(1)');
+    console.log(firstParagraph.textContent); // Output: Paragraph 1
+    firstParagraph.style.border="2px solid black";
+    console.log(para);
+  </script> 
+</body>
+</html> -->
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body> -->
 
     
 <!-- 
@@ -21,13 +108,14 @@
 <script>
     //Here ByClassName it will return Array collection
   const elements = document.getElementsByClassName('myClass');
+  //This will Convert the Html Collections into array 
   Array.from(elements).forEach(el => console.log(el.textContent));
   // Output: Div 1
   // Output: Div 2
-</script> -->
+</script>
 
 
-<!-- <p>Paragraph 1</p>
+<p>Paragraph 1</p>
 <p>Paragraph 2</p>
 <script>
     // this will Also return Html Collection
@@ -35,7 +123,7 @@
   Array.from(paragraphs).forEach(p => console.log(p.textContent));
   // Output: Paragraph 1
   // Output: Paragraph 2
-</script>  -->
+</script> 
 
 
 
@@ -167,9 +255,8 @@
     <!-- //8. Selects the first <p> element inside an element with the class 'container' -->
 <!-- //const firstParagraph = document.querySelector('.container p:first-of-type'); -->
 
-<!-- </>
-</body>
-</html>
+<!-- </body>
+</html> -->
 
 
 
@@ -211,4 +298,4 @@
         }
     </script>
 </body>
-</html> -->
+</html>

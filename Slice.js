@@ -15,7 +15,7 @@
 // javascript
 // Copy code
 // let animals = ['cat', 'dog', 'elephant', 'tiger'];
-// let slicedAnimals = animals.slice(1, 3); // Slices elements from index 1 to 3 (exclusive)
+// let slicedAnimals = animals.slice(1, 3) ;// Slices elements from index 1 to 3 (exclusive)
 // console.log(slicedAnimals); // Output: ['dog', 'elephant']
 // console.log(animals); // Original array remains unchanged: ['cat', 'dog', 'elephant', 'tiger']
 // Omitting end Parameter:
