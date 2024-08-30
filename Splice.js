@@ -32,3 +32,7 @@
 // let colors = ['red', 'green', 'blue'];
 // colors.splice(1, 1, 'yellow'); // Replaces 1 element at index 1 with 'yellow'
 // console.log(colors); // Output: ['red', 'yellow', 'blue']
+
+
+// splice modifies the original array and can add, remove, or replace elements.
+

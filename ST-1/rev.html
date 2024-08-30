@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id="file" name="file">
+    <textarea name="text" id="text" cols="20" rows="20"></textarea>
+    <button id="btn">submit</button>
+    <script>
+        document.getElementById('btn').addEventListener("click",()=>{
+            let val1= "/images/"+document.getElementById('file').files[0].name;
+            let val2=document.getElementById('text').value;
+            let obj={
+                img:val1,
+                text:val2
+            };
+            let array=JSON.parse(localStorage.getItem('key'))||[];
+            array.push(obj);
+            let data=localStorage.setItem('key',JSON.stringify(array));
+        })
+    </script>
+</body>
+</html>

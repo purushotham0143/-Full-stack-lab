@@ -73,7 +73,7 @@
         document.getElementById('bt2').addEventListener('click', prev);
 
         window.addEventListener("load", () => {
-            let array2 = JSON.parse(localStorage.getItem('key'));
+            let array2 = JSON.parse(localStorage.getItem('key'))||[];
             if (array2) {
                 Array = Array.concat(array2);
             }

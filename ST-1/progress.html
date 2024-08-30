@@ -1,0 +1,54 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #pro {
+            height: 24px;
+            width: 0%;
+            background-color: #4caf50;
+            text-align: center;
+            line-height: 24px;
+            color: rgb(56, 26, 205);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="pro">0%</div>
+    </div>
+    <button id="btn">click</button>
+<script>
+    let bar =document.getElementById('pro');
+    let con=document.getElementById('container');
+    function progress(){
+        let width=0;
+       let id=setInterval(()=>{
+        if(width>=100){
+            clearInterval(id);
+        }
+        else{
+            width++;
+          bar.style.width=width+'%';
+          con.style.textContent=width+'%';
+        }
+       },100)
+    }
+    let data=document.getElementById('btn');
+    data.addEventListener('click',progress);
+</script>
+</body>
+</html> -->
+
+
+
+

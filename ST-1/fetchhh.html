@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function dowork(){
+        let data =await fetch('https://reqres.in/api/Users?page=1');
+        let response=await data.json();
+        console.log(response);
+         dom(response);
+         function dom(res){
+            let table=document.createElement('table');
+            table.style.border="2px solid black"
+            let thead=document.createElement('thead');
+            let tbody=document.createElement('tbody');
+
+
+            let tablerow=document.createElement('tr');
+             if(res.data.length>0){
+                for(const key in res.data[0]){
+                let th=document.createElement('th');
+                    th.style.border="2px solid black";
+                    th.innerHTML=key;
+                
+            tablerow.append(th);
+             }
+             thead.appendChild(tablerow)
+            }
+         res.data.forEach((ele)=>{
+            let tr=document.createElement('tr');
+            for(const key in ele){
+                let td=document.createElement('td');
+                td.style.border="2px solid red";
+                td.innerHTML=ele[key];
+                tr.append(td);
+            }
+            tbody.append(tr);
+         })
+         table.appendChild(thead);
+         table.appendChild(tbody);
+         document.body.append(table);
+        }
+    }
+        dowork();
+    </script>
+</body>
+</html>

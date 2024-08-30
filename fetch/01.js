@@ -90,43 +90,45 @@
 //  start();
 
 
-async function Dowork(){
- var data= await fetch('https://reqres.in/api/Users?page=1');
- var ans=await data.json();
- dom(ans);
-function dom(res)
-{
-    var table = document.createElement('table');
-    table.style.border = '2px solid black';
+// async function Dowork(){
+//  var data= await fetch('https://reqres.in/api/Users?page=1');
+//  var ans=await data.json();
+//  dom(ans);
+// function dom(res)
+// {
+//     var table = document.createElement('table');
+//     table.style.border = '2px solid black';
 
-    var thead = document.createElement('thead');
-    var tbody = document.createElement('tbody');
+//     var thead = document.createElement('thead');
+//     var tbody = document.createElement('tbody');
 
-    let hederow=document.createElement('tr');
-    if(res.data.length>0){
-    for(const key in res.data[0]){
-     var th=document.createElement('th');
-     th.style.border=" 2px solid black";
-     th.innerHTML=key;
-     hederow.appendChild(th);
-    }
-}
-thead.appendChild(hederow);
+//     let hederow=document.createElement('tr');
+//     if(res.data.length>0){
+//     for(const key in res.data[0]){
+//      var th=document.createElement('th');
+//      th.style.border=" 2px solid black";
+//      th.innerHTML=key;
+//      hederow.appendChild(th);
+//     }
+// }
+// thead.appendChild(hederow);
 
 
-res.data.forEach((ele)=>{
-    var tr=document.createElement('tr');
-    for(const key in ele){
-        var td=document.createElement('td');
-        td.style.border="1px solid blue";
-        td.innerHTML=ele[key];
-        tr.append(td);
-    }
-    tbody.append(tr);
-})
-table.appendChild(thead);
-table.appendChild(tbody);
-document.body.append(table);
-}
-}
-Dowork();
+// res.data.forEach((ele)=>{
+//     var tr=document.createElement('tr');
+//     for(const key in ele){
+//         var td=document.createElement('td');
+//         td.style.border="1px solid blue";
+//         td.innerHTML=ele[key];
+//         tr.append(td);
+//     }
+//     tbody.append(tr);
+// })
+// table.appendChild(thead);
+// table.appendChild(tbody);
+// document.body.append(table);
+// }
+// }
+// Dowork();
+
+

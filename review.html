@@ -85,7 +85,6 @@ localStorage.setItem('key',JSON.stringify(array));
                 img: var1,
                 text: var2
             };
-            
             let array = JSON.parse(localStorage.getItem('key')) || [];
             array.push(obj);
             localStorage.setItem('key', JSON.stringify(array));

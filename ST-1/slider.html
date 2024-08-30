@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="cont">
+   <img  id="im"   src="../images/best telugu relationship importance messages quotes in telugu-jnanakadali.jpg" width="200px" heigth="200px">
+   <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias iste nam molestias impedit, voluptates maxime incidunt fugit maiores est asperiores?</p>
+   <a href="./rev.html"><button>rev</button></a>
+   <button id="next">Next</button><br>
+   <button id="prev">Prev</button><br>
+    </div>
+    <script>
+        let count=0;
+        let Array = [
+            {
+                img: '../images/best telugu relationship importance messages quotes in telugu-jnanakadali.jpg',
+                text: 'This is Slide image1'
+            },
+            {
+                img: '../images/download.jpg',
+                text: 'This is Slide image2'
+            },
+            {
+                img: '../images/images.jpg',
+                text: 'This is Slide image3'
+            },
+            {
+                img: '../images/motivatinol-quotes-3.png',
+                text: 'This is Slide image4'
+            }
+        ];
+       let slide=document.getElementById('im')
+       let para=document.getElementById('para')
+      function next(){
+        count++;
+        if(count>=Array.length){
+            count=Array.length-1;
+        }
+        slide.setAttribute('src', Array[count].img);
+       para.innerHTML=Array[count].text;
+      }
+    document.getElementById('next').addEventListener('click',next);
+      window.addEventListener('load',()=>{
+        let array2=JSON.parse(localStorage.getItem('key'))||[];
+        if(array2){
+        Array=Array.concat(array2);
+        }
+      })
+    </script>
+</body>
+</html>

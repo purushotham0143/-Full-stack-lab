@@ -1,0 +1,47 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="searchInput" placeholder="Search products...">
+         <div id="results"></div>
+<script>
+    const Products = [
+    {
+        Name: "vivo",
+        Price: 1000,
+        Image: "https://www.refurbkart.com/cdn/shop/products/VivoY19BLUE.jpg?v=1673869523",
+        Dis:"This is first product"
+    },
+    {Name: "LG Tv",
+        Price: 35000,
+        Image: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6337/6337625ld.jpg",
+        Dis:"This is Second product"
+    },
+    {
+        Name: "Realme 10 pro",
+        Price: 2700,
+         Image:"https://m.media-amazon.com/images/I/512xWF88CnL._AC_UF1000,1000_QL80_.jpg",
+        Dis:"This is Third product"
+    },
+]
+document.querySelector('input').addEventListener('input',()=>{
+let val1=document.getElementById('searchInput').value.toLowerCase();
+   let res=document.getElementById('results'); 
+   res.innerHTML='';
+   Products.forEach((ele)=>{
+    if(ele.Name.toLowerCase().includes(val1)){
+    let div=document.createElement('div');
+    div.innerHTML=`<h1>${ele.Name}</h1>
+                    <p>${ele.Dis}</p>`;
+   res.appendChild(div);
+    }
+})
+})
+</script>
+</body>
+</html>
+ -->

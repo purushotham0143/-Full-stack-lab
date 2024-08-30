@@ -4,37 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+       *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+       }
+       body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+       }
+       .container{
+        background-color: aqua;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+       }
+       .numbers,.operations{
+        padding: 10px;
+        margin: 5px;
+       }
+       .operations{
+        background-color: green;
+       }
+       .text{
+        padding: 2px;
+        font-size: 2em;
+        text-align: right;
+        position: absolute;
+        top: 10%;
+       }
+       .keys{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 20px; 
+        margin-top: 60px;
+       }
+       button{
+        padding: 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 1.5em;
+       }
+       button:hover,#AC:hover,#DEL:hover{
+        background-color: lightskyblue;
+       }
+       button:active{
+        background-color: #888;
+       }
+       #AC{
+        background-color: red;
+       }
+       #DEL{
+        background-color: yellow;
+       }
+    </style>
 </head>
 <body>
-    <html>
-    <body>
-      
-        <div id="digits">0</div>
-        
-         <button class="btns">1</button>
-        <button class="btns">2</button>
-        <button class="btns">3</button><br/>
-
-        <button class="btns">4</button>
-        <button class="btns">5</button>
-        <button class="btns">6</button><br/>
-
-        <button class="btns">7</button>
-        <button class="btns">8</button>
-        <button class="btns">9</button><br/>
-        
-        <button class="btns">0</button>
-        <button class="operations">+</button>
+   
+    <div class="container">
+        <div class="text">
+            <p id="input">0</p>
+        </div>
+    <div class="keys">
+        <button class="numbers">7</button>
+        <button class="numbers">8</button>
+        <button class="numbers">9</button>
+        <button class="numbers">4</button>
+        <button class="numbers">5</button>
+        <button class="numbers">6</button>
+        <button class="numbers">1</button>
+        <button class="numbers">2</button>
+        <button class="numbers">3</button>
+        <button class="numbers">0</button>
+        <button class="numbers">.</button>
+        <button class="operations">/</button>
+        <button class="operations">*</button>
         <button class="operations">-</button>
-        <button class="operations">=</button> 
-        
+        <button class="operations">+</button>
+        <button class="operations" id="AC">AC</button>
+        <button class="operations" id="DEL">DEL</button>
+        <button class="operations">=</button>
+    </div>
+</div>
+    <script>
+        const inputValue = document.querySelector('#input');
 
+        //for numbers
+        document.querySelectorAll('.numbers').forEach(item => {
+            item.addEventListener('click',(e) => {
+                if(inputValue.innerHTML == "0") { 
+                    inputValue.innerHTML=""; 
+                }
+                inputValue.innerHTML += e.target.innerHTML;
+            })
+        })
 
+        //for operations
+        document.querySelectorAll('.operations').forEach(item => {
+            item.addEventListener('click',(e) => {
+                if(e.target.innerHTML == "="){
+                    inputValue.innerHTML = eval(inputValue.innerHTML);
+                }
+                else if(e.target.innerHTML == "AC"){
+                    inputValue.innerHTML = "0";
+                }
+                else if(e.target.innerHTML == "DEL"){
+                    inputValue.innerHTML = inputValue.innerHTML.slice(0,inputValue.innerHTML.length-1);
+                }
+                else{
+                    let lastValue = inputValue.innerHTML.slice(-1);
+                    if(isNaN(lastValue)){
+                         return;
+                         }
+                    else { inputValue.innerHTML += e.target.innerHTML; }
+                }
+            })
+        })
 
-        <script src="./calculater.js">
-
-        </script>
-    </body>
-</html>
+    </script>
+</div>
 </body>
 </html>
