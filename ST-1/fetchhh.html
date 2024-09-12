@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,4 +48,211 @@
         dowork();
     </script>
 </body>
-</html>
+</html>  -->
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function dowork(){
+        let data =await fetch('data.json');
+        let response=await data.json();
+        console.log(response);
+         dom(response);
+         function dom(res){
+            let table=document.createElement('table');
+            table.style.border="2px solid black"
+            let thead=document.createElement('thead');
+            let tbody=document.createElement('tbody');
+
+
+            let tablerow=document.createElement('tr');
+             if(res.length>0){
+                for(const key in res[0]){
+                let th=document.createElement('th');
+                    th.style.border="2px solid black";
+                    th.innerHTML=key;
+                
+            tablerow.append(th);
+             }
+             thead.appendChild(tablerow)
+            }
+         res.forEach((ele)=>{
+            let tr=document.createElement('tr');
+            for(const key in ele){
+                let td=document.createElement('td');
+                td.style.border="2px solid red";
+                td.innerHTML=ele[key];
+                tr.append(td);
+            }
+            tbody.append(tr);
+         })
+         table.appendChild(thead);
+         table.appendChild(tbody);
+         document.body.append(table);
+        }
+    }
+        dowork();
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+ 
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function dowork(){
+            let data = await fetch('https://dummyjson.com/users');
+            let response = await data.json();
+            response = response.users;
+            console.log(response);
+            dom(response);
+
+            function dom(res){
+                let table = document.createElement('table');
+                table.style.border = "2px solid black";
+                let thead = document.createElement('thead');
+                let tbody = document.createElement('tbody');
+
+                let tablerow = document.createElement('tr');
+                if(res.length > 0){
+                    for(const key in res[0]){
+                        let th = document.createElement('th');
+                        th.style.border = "2px solid black";
+                        th.innerHTML = key;
+                        tablerow.append(th);
+                    }
+                    thead.appendChild(tablerow);
+                }
+
+                res.forEach((ele) => {
+                    let tr = document.createElement('tr');
+                    for(const key in ele){
+                        let td = document.createElement('td');
+                        td.style.border = "2px solid red";
+                        if(key === "image"){
+                            let img = document.createElement('img');
+                            img.src = ele[key];
+                            img.style.width = '150px';
+                            img.style.height = '150px';
+                            td.appendChild(img);
+                        } else {
+                            td.innerHTML = JSON.stringify(ele[key]);
+                        }
+                        tr.append(td);
+                    }
+                    tbody.append(tr);
+                });
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+                document.body.append(table);
+            }
+        }
+        dowork();
+    </script>
+</body>
+</html> -->
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const employees = [
+    {
+    id : "E1",
+    name : "Alice",
+    basicSalary : 50000,
+    performanceRatings : [
+        { month : "January", rating : 4.5},
+        { month : "February", rating : 4.0},
+        { month : "March", rating : 5.0},
+    ],
+    attendance : [
+        { month : "January", daysPresent : 20, totalWorkingDays:22 },
+        { month : "February", daysPresent : 18, totalWorkingDays:20 },
+        { month : "March", daysPresent : 22, totalWorkingDays:22 },
+    ]
+    }
+]
+
+
+
+
+function calculateSalary(employee){
+    
+    let totalSalary =[];
+    employee.map(employees => {
+        let basicSalary = employees.basicSalary;
+
+        let avgrating=0;
+        employees.performanceRatings.forEach(obj => {
+            avgrating += obj.rating;
+        })
+        avgrating = avgrating/employees.performanceRatings.length;
+    
+        if(avgrating >= 4.5){
+            basicSalary = basicSalary + (20*basicSalary)/100 ;
+        }
+        else if(avgrating >= 4.0){
+            basicSalary = basicSalary + (10*basicSalary)/100 ;
+        }
+        else if(avgrating >=3.5){
+            basicSalary = basicSalary + (5*basicSalary)/100 ;
+        }
+    
+        let attendancePercentage = 0;
+        employees.attendance.forEach(obj => {
+            attendancePercentage = attendancePercentage + (obj.daysPresent * 100)/obj.totalWorkingDays ;
+        })
+        attendancePercentage = attendancePercentage / employees.attendance.length;
+
+        if(attendancePercentage<=90){
+            basicSalary = basicSalary - (5*basicSalary)/100;
+        }
+    
+        totalSalary.push(${basicSalary})
+    })
+    return totalSalary;
+}
+
+console.log(calculateSalary(employees));
+    </script>
+</body>
+</html> -->
+
+
+
+

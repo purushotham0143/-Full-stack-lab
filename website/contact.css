@@ -1,0 +1,85 @@
+body{
+    background-color: rgb(84, 186, 186);
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+    height: 100vh; /* Utilizes full viewport height */
+    margin: 0; /* Remove default margin */
+}
+.contact{
+    width: 1000px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solidaliceblue;
+    background-color: aliceblue;
+    border-radius: 5px;
+    opacity: 80%;
+}
+.location{
+    width: 150px;
+    height: 100px;
+    margin-left:50px ;
+    margin-top:15px ;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.call{
+    width: 150px;
+    height: 100px;
+    margin-left:50px ;
+    margin-top:15px ;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.mail{
+    width: 150px;
+    height: 100px;
+    margin-left:50px ;
+    margin-top:15px ;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.data {
+    margin: 20px auto; 
+    padding: 20px; 
+    margin-left: 250px;
+    margin-top: -400px;
+    margin-bottom: 50px;
+    justify-content: space-between;
+}
+
+.data p, .data input {
+    width: 100%; 
+    margin: 10px 0;
+}
+
+.data input {
+    padding: 15px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+
+.data button {
+    background-color: #6009d8;
+    color: white;
+    border-radius: 5px;
+}
+.message{
+    height:70px ;
+    border: none;
+    outline: none;
+}
+.vl{
+    width: 1px;
+    height:800px;
+    background-color: #6009d8;
+    position: relative;
+    top: -200px;
+    left: 250px;
+}

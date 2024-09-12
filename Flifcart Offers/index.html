@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .product {
+            border: 2px solid black;
+            width: 300px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const products = [
+            { img: "https://i5.walmartimages.com/asr/cce0e3d4-51f0-45c9-84a6-9240ac3942bf_1.b5ae03cbb347df2f8cbbf85f75d3df01.jpeg", Name: "Lenovo", price: "20000" },
+            { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRji4FFZTi68HwZzhAxJIFoB8Gn-r5E1o2s8A&s", Name: "Dell", price: "20000" },
+            { img: "https://5.imimg.com/data5/SELLER/Default/2021/3/YE/VN/KU/112920323/hp-laptop.jpg", Name: "Hp", price: "20000" },
+            { img: "https://4.imimg.com/data4/SJ/BA/MY-3018414/apple-laptop.jpg", Name: "Apple", price: "20000" }
+        ];
+
+        let index = 0;
+        let arr = [];
+
+        const intervalId = setInterval(() => {
+            const product = products[index]; // Capture the current product before incrementing index
+
+            let div = document.createElement('div');
+            div.setAttribute('class', 'product'); // Set the class attribute for the div
+            div.setAttribute('data-name', product.Name); // Store product name in the div
+
+            let button = document.createElement('button');
+            button.innerHTML = "Grab";
+
+            div.innerHTML += `<p>${product.Name}</p>
+                             <img src="${product.img}" alt="No image" height="200px" width="200px">
+                             <p>${product.price}</p>`;
+            div.append(button);
+
+            document.body.append(div);
+
+            button.addEventListener('click', (e) => {
+                let node = e.target.parentNode;
+                let productName = node.getAttribute('data-name');
+                let obj = {
+                    imgeee: product.img,
+                    piru: productName,
+                    amount: product.price,
+                };
+                arr.push(obj);
+                console.log(obj);
+                node.remove(); // Remove the div on click
+            });
+
+            index++;
+            if (index >= products.length) {
+                clearInterval(intervalId);
+            }
+        }, 2000);
+
+        // Set a timeout to delete remaining divs after 5 minutes
+        setTimeout(() => {
+            const divs = document.querySelectorAll('body > div.product');
+            divs.forEach(div => {
+                const productName = div.getAttribute('data-name');
+                const isInArr = arr.some(item => item.piru === productName);
+                if (!isInArr) {
+                    div.remove(); // Remove div if product is not in the arr
+                }
+            });
+            console.log('Remaining products removed after 5 minutes');
+
+            // Add the products from arr back to the body
+            arr.forEach(product => {
+                let div = document.createElement('div');
+                div.setAttribute('class', 'product');
+                div.innerHTML = `<p>${product.piru}</p>
+                                 <img src="${product.imgeee}" alt="No image" height="200px" width="200px">
+                                 <p>${product.amount}</p>`;
+                                 let button = document.createElement('button');
+                                 button.innerHTML = "Buy";
+                                 div.append(button);
+                document.body.append(div);
+            });
+            console.log('Products from arr added back to the body');
+        }, 300000); // 5 minutes in milliseconds
+    </script>
+</body>
+</html>

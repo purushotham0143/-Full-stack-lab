@@ -1,0 +1,149 @@
+.navbar{
+    display: flex;
+    padding: 5px;
+    text-indent: 50px;
+    word-spacing: 20%;
+    background-color:white;
+}
+.logo{
+    width: 30px;
+    height: 30px;
+}
+.Login{
+    margin-left: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.words{
+    margin-left: 20%;
+    display: flex;
+}
+.words a{
+    text-decoration: none;
+    color: cadetblue;
+}
+#img{
+    width: 100%;
+    height: 300px;
+}
+.down{
+    padding: 10px;
+    display: flex;
+    margin-left: 5%;
+    margin-top: 7%;
+    justify-content: space-around;
+}
+.bud{
+    margin:10px;
+    width: 30px;
+    height: 30px;
+}
+.bil{
+    margin:10px;
+    width: 30px;
+    height: 30px;
+}
+.cre{
+    margin:10px;
+    width: 30px;
+    height: 30px;
+}
+.budget{
+    border: 2px solid white;
+    background-color: rgb(245, 245, 245);
+    border-top: 4px solid rgb(0, 213, 255);
+    border-radius: 5px;
+    opacity: 100%;
+    width: 250px;
+    height: 230px;
+}
+.bill{
+    border: 2px solid white;
+    background-color: rgb(245, 245, 245);
+    border-top: 4px solid rgb(0, 213, 255);
+    border-radius: 5px;
+    opacity: 100%;
+    width: 250px;
+    height: 230px;
+}
+.credit{
+    border: 2px solid white;
+    background-color: rgb(245, 245, 245);
+    border-top: 4px solid rgb(0, 213, 255);
+    border-radius: 5px;
+    opacity: 100%;
+    width: 250px;
+    height: 230px;
+}
+.para{
+    text-align: center;
+}
+.sign{
+    padding: 5px;
+    color: white;
+    background-color: orangered;
+    border-color: orangered;
+    border-radius: 2px;
+}
+.login{
+    padding: 5px;
+    height: 30px;
+    margin-left: 10px;
+    color: rgb(79, 213, 169);
+    border-color: rgb(28, 186, 133);
+    background-color: white;
+    border-radius: 2px;;
+}
+.Data{
+    text-align: center;
+    margin-top: -20%;
+}
+.free{
+    color: white;
+    background-color: orangered;
+    border-color: orangered;
+    border-radius: 2px;
+}
+#footer{
+    background-color: rgb(50, 50, 129);
+}
+.Footimg{
+    display: flex;
+    justify-content: center;
+}
+.footdata{
+  display: flex;
+  justify-content: center;
+}
+.word{
+    padding: 10px;
+}
+.fa-facebook {
+    margin-top: 20px;
+     margin-right:20px;
+    color: white;
+    text-decoration: none;
+  }
+  .fa-twitter {
+    margin-top: 20px;
+     margin-right:20px;
+    color: white;
+    text-decoration: none;
+  }
+  .fa-linkedin {
+    margin-top: 20px;
+     margin-right:20px;
+    color: white;
+    text-decoration: none;
+  }
+  .fa-instagram {
+    margin-top: 20px;
+     margin-right:20px;
+    color: white;
+    text-decoration: none;
+  }
+  .last{
+    text-align: center;
+  }
