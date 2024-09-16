@@ -1,0 +1,5 @@
+Crud operations on MongoDb using terminal 
+1.in online we have atlas data base  to use it in our local mechine we install compess and mongoshell(mongosh)
+using Mongosh we insert data using terminal  
+2.if we went  outside if we are writing exam in atlas we have drivers in  drivers we have uri we will copy it 
+and we past in js andd we will connct it we will append data

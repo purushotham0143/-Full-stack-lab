@@ -163,6 +163,13 @@
                 `;
                 questionsDiv.appendChild(div);
             });
+            questionsDiv.addEventListener('click',()=>{
+              let input=document.createElement('input');
+              let  ans=document.createComment('button');
+              div.appendChild(input);
+              div.appendChild(ans);
+              
+            })
         }
         
         searchInput.addEventListener('input', () => {

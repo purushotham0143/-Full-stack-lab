@@ -1,11 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        
+        #container {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        
+        #leftPanel, #rightPanel {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #leftPanel {
+            width: 35%;
+        }
+        
+        #rightPanel {
+            width: 60%;
+            border-left: 2px solid #ccc;
+            padding-left: 20px;
+        }
+        
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        #heading {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        input[type="text"] {
+            padding: 12px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        #questions {
+            margin-top: 20px;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            cursor: pointer;
+            transform: scale(1.02);
+        }
+
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .answer {
+            margin-top: 10px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
 </head>
 <body>
-  
+    <div id="container">
+        <div id="leftPanel">
+            <button id="view">New Question Form</button>
+            <input type="text" id="search" placeholder="Search a question">
+            <div id="questions" style="display: none;"></div>
+        </div>
+        <div id="rightPanel">
+            <h1 id="heading">Welcome to Discussion Portal</h1>
+            <input type="text" id="subject" placeholder="Enter subject">
+            <input type="text" id="addQues" placeholder="Enter question">
+            <button id="submit">SUBMIT</button>
+        </div>
+    </div>
+    
+    <script>
+        let container = document.querySelector('#container');
+        let leftPanel = document.querySelector('#leftPanel');
+        let rightPanel = document.querySelector('#rightPanel');
+        let viewBtn = document.querySelector('#view');
+        let searchInput = document.querySelector('#search');
+        let questionsDiv = document.querySelector('#questions');
+        let submitBtn = document.querySelector('#submit');
+        let subjectInput = document.querySelector('#subject');
+        let addQuesInput = document.querySelector('#addQues');
+        
+        let arr = [];
+        
+        // Adding a new question
+        submitBtn.addEventListener('click', () => {
+            let subject = subjectInput.value.trim();
+            let question = addQuesInput.value.trim();
+            
+            if (subject && question) {
+                arr.push({
+                    subject: subject,
+                    question: question,
+                    answer: null
+                });
+                renderQuestions(arr);
+                subjectInput.value = "";
+                addQuesInput.value = "";
+            } else {
+                alert("Please fill both the fields");
+            }
+        });
+        
+        // Function to render the questions
+        function renderQuestions(questionsArray) {
+            questionsDiv.innerHTML = "";
+            questionsDiv.style.display = 'block';
+            
+            questionsArray.forEach((item, index) => {
+                let div = document.createElement('div');
+                div.id = index;
+                div.classList.add('product');
+                div.innerHTML = `
+                    <h1>${item.subject}</h1>
+                    <p>${item.question}</p>
+                    ${item.answer ? `<p class="answer">Answer: ${item.answer}</p>` : ''}
+                `;
+                questionsDiv.appendChild(div);
+
+                // Add click event to each question div
+                div.addEventListener('click', () => {
+                    if (!item.answer && !div.querySelector('input')) {
+                        let input = document.createElement('input');
+                        input.type = "text";
+                        input.placeholder = "Enter answer";
+                        input.style.marginTop = "10px";
+
+                        let ansBtn = document.createElement('button');
+                        ansBtn.textContent = "Submit Answer";
+                        ansBtn.style.marginTop = "10px";
+                        
+                        // Handle answer submission
+                        ansBtn.addEventListener('click', () => {
+                            let answer = input.value.trim();
+                            if (answer) {
+                                item.answer = answer;
+                                renderQuestions(arr);  // Re-render the list with updated answer
+                            } else {
+                                alert("Please provide an answer");
+                            }
+                        });
+
+                        div.appendChild(input);
+                        div.appendChild(ansBtn);
+                    }
+                });
+            });
+        }
+
+        // Search functionality
+        searchInput.addEventListener('input', () => {
+            let searchValue = searchInput.value.toLowerCase();
+            let filteredQuestions = arr.filter(item => item.question.toLowerCase().includes(searchValue));
+            renderQuestions(filteredQuestions);
+        });
+    </script>
 </body>
 </html>
