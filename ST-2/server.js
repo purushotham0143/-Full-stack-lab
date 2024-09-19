@@ -1,29 +1,24 @@
 const express = require('express');
 const app = express();
+const fs=require('fs');
 const port = 3000;
-
-// Sample data
-const playersData = [
-  { id: 1, player: 'John', selected: true },
-  { id: 2, player: 'Jane', selected: false },
-  { id: 3, player: 'Alice', selected: true },
-  { id: 4, player: 'Bob', selected: false },
-];
-
-// Serve the HTML file
-app.use(express.static(__dirname)); // Serves files from the current directory
-
-// Endpoint to get player data
-app.get('/getdata', (req, res) => {
-  res.json(playersData);
-});
-
-// Endpoint to get filtered data where 'selected' is true
-app.get('/selecteddata', (req, res) => {
-  const selectedPlayers = playersData.filter(player => player.selected);
-  res.json(selectedPlayers);
-});
-
+app.get('/',(req,res)=>{
+  res.sendFile('data.html',{root:'./'});
+})
+app.get('/getdata',(req,res)=>{
+  let data=JSON.parse(fs.readFileSync('data.json'));
+  res.json(data);
+})
+app.get('/data',(req,res)=>{
+  let cond=req.query.condition;
+  // console.log(cond);
+  let data=JSON.parse(fs.readFileSync('data.json'));
+  let fil=data.filter(item => {
+  return item.conditioin == cond;
+  })
+  res.json(fil);
+})
+app.post('')
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log("Server Started 3000");
 });

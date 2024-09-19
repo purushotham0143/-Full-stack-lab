@@ -3,77 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Player Data</title>
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
+  <title>Document</title>
 </head>
 <body>
-  <h1>Player Data</h1>
-  <div id="table-container"></div>
-
+  <h1>Wecome To Home page</h1>
+  <button id="btn">All Data</button><br><br>
+  <input type="text" id="condition" name="condition"><br>
+  <button id="cond">condition data</button><br>
   <script>
-    // Function to create and populate the table
-    function createTable(data) {
-      const tableContainer = document.getElementById('table-container');
-      // Create table elements
-      const table = document.createElement('table');
-      const thead = document.createElement('thead');
-      const tbody = document.createElement('tbody');
+    // learn Absolute path and Relative path 
+    var table = document.createElement('table');
+    table.style.border = '2px solid black';
+    table.style.marginTop = '10px';
 
-      // Create table header
-      const headerRow = document.createElement('tr');
-      const headers = ['ID', 'Player', 'Selected'];
-      headers.forEach(header => {
-        const th = document.createElement('th');
-        th.textContent = header;
+    var thead = document.createElement('thead');
+    var tbody = document.createElement('tbody');
+  fetch('/getdata').then(response =>response.json()).then(data => {
+    console.log(data); 
+    document.getElementById('btn').addEventListener('click', function () {
+      dom(data);
+    });
+  })
+  function dom(input) {
+ 
+    thead.innerHTML = "";
+    tbody.innerHTML = "";
+    // Create table header
+    var headerRow = document.createElement('tr');
+    if (input.length > 0) {
+      for (let key in input[0]) {
+        var th = document.createElement('th');
+        th.innerHTML = key;
+        th.style.border = '1px solid black';
+        th.style.padding = '5px';
         headerRow.appendChild(th);
-      });
-      thead.appendChild(headerRow);
-
-      // Create table rows
-      data.forEach(item => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>${item.id}</td>
-          <td>${item.player}</td>
-          <td>${item.selected}</td>
-        `;
-        tbody.appendChild(row);
-      });
-
-      // Append header and body to the table
-      table.appendChild(thead);
-      table.appendChild(tbody);
-
-      // Append table to container
-      tableContainer.appendChild(table);
+      }
     }
+    thead.appendChild(headerRow);
+    
+    // Create table body
+    input.forEach((ele) => {
+      var tr = document.createElement('tr');
+      for (let key in ele) {
+        var td = document.createElement('td');
+        td.innerHTML = ele[key];
+        td.style.border = '1px solid black';
+        td.style.padding = '5px';
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    });
 
-    // Fetch data and create the table
-    fetch('/getdata')
-      .then(response => response.json())
-      .then(data => createTable(data))
-      .catch(error => console.error('Error fetching data:', error));
+  }
+  //This is using get
+ // document.getElementById('cond').addEventListener('click',async(e)=>{
+    //e.preventDefault();
+    //let val1=document.getElementById('condition').value;
+   //fetch(`/data?condition=${val1}`).then(res=>res.json()).then(data=>{
+    //dom(data);
+  // })
+//});
+//This is using Post
+document.getElementById('cond').addEventListener('click', async (e) => {
+  e.preventDefault();
+  let val1 = document.getElementById('condition').value;
 
-    // Fetch selected data and handle it (if needed)
-    fetch('/selecteddata')
-      .then(response => response.json())
-      .then(data => {
-        console.log('Selected data:', data);
-        // You can handle the selected data as needed, e.g., display in another table or use for other purposes
-      })
-      .catch(error => console.error('Error fetching selected data:', error));
+  // Using POST instead of GET
+  fetch('/data', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ condition: val1 }) // Sending data as JSON in the body
+  })
+  .then(res => res.json())
+  .then(data => {
+      dom(data);
+  });
+});
+table.appendChild(thead);
+table.appendChild(tbody);
+document.body.appendChild(table);
   </script>
 </body>
 </html>

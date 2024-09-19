@@ -1,0 +1,6 @@
+[
+    {"name":"rohan","category":"student","conditioin":"good"},
+    {"name":"ram","category":"student","conditioin":"good"},
+    {"name":"gopi","category":"worker","conditioin":"bad"},
+    {"name":"balaji","category":"worker","conditioin":"bad"}
+]
