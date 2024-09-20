@@ -63,23 +63,24 @@
     //dom(data);
   // })
 //});
+
+
 //This is using Post
 document.getElementById('cond').addEventListener('click', async (e) => {
   e.preventDefault();
-  let val1 = document.getElementById('condition').value;
-
-  // Using POST instead of GET
-  fetch('/data', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ condition: val1 }) // Sending data as JSON in the body
-  })
-  .then(res => res.json())
-  .then(data => {
-      dom(data);
-  });
+  let val1 = document.getElementById('condition').value.trim();
+  let obj = {condition : val1}
+fetch('/data', {
+  method: 'POST',
+  headers: {
+      'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(obj)
+})
+.then(res => res.json())
+.then(data => {
+  dom(data);  
+});
 });
 table.appendChild(thead);
 table.appendChild(tbody);
