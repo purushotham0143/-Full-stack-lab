@@ -91,9 +91,8 @@ if(cart==null){
      cart=[];
     obj.count=1;
     cart.push(obj);
-    localStorage.setItem('cart',JSON.stringify(cart));
+    localStorage.setItem('cart',JSON.stringify(cart)); 
 }
-
 else{
 let item=cart.find(ele=> {
     if(ele.Name==obj.Name){   // when it is matches then it will return true

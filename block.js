@@ -15,15 +15,15 @@
 
 
 
-const path = require('path');
-const fs = require('fs');
+// const path = require('path');
+// const fs = require('fs');
 
-function read() {
-    // let filePath = path.join(__dirname, 'block.js');
-    // let data = fs.readFileSync(filePath, 'utf-8');
-    // return data; 
-}
-console.log(read());
+// function read() {
+//     let filePath = path.join(__dirname, 'block.js');
+//     let data = fs.readFileSync(filePath, 'utf-8');
+//     return data; 
+// }
+// console.log(read());
 
 
 
